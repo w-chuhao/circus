@@ -1,0 +1,104 @@
+diff --git a/src/main/java/circus/Circus.java b/src/main/java/circus/Circus.java
+index 467385f..544452a 100644
+--- a/src/main/java/circus/Circus.java
++++ b/src/main/java/circus/Circus.java
+@@ -25,6 +25,7 @@ public class Circus {
+         }
+     }
+ 
++<<<<<<< HEAD
+     private static int calculateValue(Asset[] assets) {
+         int total = 0;
+         for (Asset asset : assets) {
+@@ -35,13 +36,29 @@ public class Circus {
+             total += asset.getValue();
+             System.out.println("Adding item value: " + asset.getValue());
+ 
++=======
++    private static int calculateAssetValue(Asset[] assets) {
++        int total = 0;
++        for (Asset a : assets) {
++            if (a.getValue() <= 5) {
++                System.out.println("Ignoring low value item: " + a.getValue());
++                continue;
++            }
++            total += a.getValue();
++            System.out.println("Adding item value: " + a.getValue());
++>>>>>>> improvecode
+         }
+         return total;
+     }
+ 
+     public static void main(String[] args) {
+         makeAnimalsTalk();
++<<<<<<< HEAD
+         System.out.println("Total value of equipments " + calculateValue(equipments));
+         System.out.println("Total value of animals " + calculateValue(animals));
++=======
++        System.out.println("Total value of animals " + calculateAssetValue(animals));
++        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
++>>>>>>> improvecode
+     }
+ }
+diff --git a/src/main/java/circus/Trainer.java b/src/main/java/circus/Trainer.java
+index 33b4b90..8856d2c 100644
+--- a/src/main/java/circus/Trainer.java
++++ b/src/main/java/circus/Trainer.java
+@@ -21,7 +21,10 @@ public class Trainer {
+ 
+         train(new Duck());
+         train(new Parrot());
++<<<<<<< HEAD
+ 
++=======
++>>>>>>> improvecode
+     }
+ 
+     private static void getToSpeak(Animal animal) {
+@@ -29,7 +32,9 @@ public class Trainer {
+     }
+ 
+     private static void train(Bird bird) {
+-        Duck d = (Duck) bird;
+-        d.swim();
++        if (bird instanceof Duck) {
++            Duck d = (Duck) bird;
++            d.swim();
++        }
+     }
+ }
+diff --git a/src/main/java/circus/animal/Bird.java b/src/main/java/circus/animal/Bird.java
+index 4020905..64ac46b 100644
+--- a/src/main/java/circus/animal/Bird.java
++++ b/src/main/java/circus/animal/Bird.java
+@@ -1,6 +1,13 @@
+ package circus.animal;
+ 
+ public abstract class Bird extends Animal {
++<<<<<<< HEAD
++=======
++    public String speak() {
++        return "tweet tweet";
++    }
++
++>>>>>>> improvecode
+     public void fly() {
+         System.out.println("Whee ...");
+     }
+diff --git a/src/main/java/circus/stuff/Ladder.java b/src/main/java/circus/stuff/Ladder.java
+index 56403bf..82642b5 100644
+--- a/src/main/java/circus/stuff/Ladder.java
++++ b/src/main/java/circus/stuff/Ladder.java
+@@ -1,6 +1,12 @@
+ package circus.stuff;
+ 
++<<<<<<< HEAD
+ public class Ladder extends Equipment {
++=======
++import circus.Asset;
++
++public class Ladder extends Equipment implements Asset {
++>>>>>>> improvecode
+ 
+     public Ladder(int purchasePrice) {
+         super(purchasePrice);

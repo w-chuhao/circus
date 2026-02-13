@@ -21,7 +21,6 @@ public class Trainer {
 
         train(new Duck());
         train(new Parrot());
-
     }
 
     private static void getToSpeak(Animal animal) {
@@ -29,7 +28,9 @@ public class Trainer {
     }
 
     private static void train(Bird bird) {
-        Duck d = (Duck) bird;
-        d.swim();
+        if (bird instanceof Duck) {
+            Duck d = (Duck) bird;
+            d.swim();
+        }
     }
 }

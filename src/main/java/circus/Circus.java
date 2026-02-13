@@ -25,23 +25,22 @@ public class Circus {
         }
     }
 
-    private static int calculateValue(Asset[] assets) {
+    private static int calculateAssetValue(Asset[] assets) {
         int total = 0;
-        for (Asset asset : assets) {
-            if (asset.getValue() <= 5) {
-                System.out.println("Ignoring low value item: " + asset.getValue());
+        for (Asset a : assets) {
+            if (a.getValue() <= 5) {
+                System.out.println("Ignoring low value item: " + a.getValue());
                 continue;
             }
-            total += asset.getValue();
-            System.out.println("Adding item value: " + asset.getValue());
-
+            total += a.getValue();
+            System.out.println("Adding item value: " + a.getValue());
         }
         return total;
     }
 
     public static void main(String[] args) {
         makeAnimalsTalk();
-        System.out.println("Total value of equipments " + calculateValue(equipments));
-        System.out.println("Total value of animals " + calculateValue(animals));
+        System.out.println("Total value of animals " + calculateAssetValue(animals));
+        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
     }
 }
